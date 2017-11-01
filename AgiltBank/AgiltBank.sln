@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgiltBank", "AgiltBank\AgiltBank.csproj", "{ECE0977C-DECD-432A-82E5-268CC9C5B92C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECE0977C-DECD-432A-82E5-268CC9C5B92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE0977C-DECD-432A-82E5-268CC9C5B92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE0977C-DECD-432A-82E5-268CC9C5B92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE0977C-DECD-432A-82E5-268CC9C5B92C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83AA36C0-FED3-4B30-8B61-7EF90E3ACE60}
+	EndGlobalSection
+EndGlobal
