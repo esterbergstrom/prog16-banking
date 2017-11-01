@@ -9,7 +9,7 @@ namespace AgiltBankLibrary
         // TODO: Update with the right var for the id's 
         // TODO: Update with logic when the account class is done
 
-        public bool Insert(int accountId, decimal amount)
+        public bool Deposit(int accountId, decimal amount)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace AgiltBankLibrary
             return true;
         }
 
-        public bool Extract(int accountId, decimal amount)
+        public bool Withdrawal(int accountId, decimal amount)
         {
             try
             {
