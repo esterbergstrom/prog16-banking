@@ -1,0 +1,22 @@
+Agilt Bank, arbetsfördelning:
+
+~Emil~
+Models
+-Customer
+-Bank
+-Account
+Data till/från .txt fil 
+InMemoryDB
+Skapa/Ta bort kund
+
+~Ester~
+Frontlagret
+Sök kund (på namn, postort)
+Visa kunduppgifter
+
+~Perly~
+Transactions
+-Insättning
+-Uttag
+-Överföring
+(Kan ta över delar om jag blir klar och det fortfarande finns annat att göra)
