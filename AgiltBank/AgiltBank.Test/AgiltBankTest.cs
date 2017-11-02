@@ -55,6 +55,9 @@ namespace AgiltBank.Test
         [TestMethod]
         public void CanOpenAccount()=> _bankData.OpenAccount(1005);
 
+        [TestMethod]
+        public void CanRemoveAccount() => Assert.IsTrue(_bankData.RemoveAccount(13001));
+
         private void InitializeBankData()
         {
             var customers = new List<Customer>
