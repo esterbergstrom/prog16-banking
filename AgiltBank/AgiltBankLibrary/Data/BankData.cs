@@ -14,5 +14,10 @@ namespace AgiltBankLibrary.Data
 
         public IList<Customer> Customers { get; }
         public IList<Account> Accounts { get; }
+
+        public Customer GetCustomer(int id)
+        {
+            return Customers.FirstOrDefault(c => c.Id == id);
+        }
     }
 }

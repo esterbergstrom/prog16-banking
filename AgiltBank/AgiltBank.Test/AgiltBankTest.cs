@@ -16,6 +16,9 @@ namespace AgiltBank.Test
             InitializeBankData();
         }
 
+        [TestMethod]
+        public void CanGetCustomerFromBankData() => Assert.IsNotNull(_bankData.GetCustomer(1005));
+
         private void InitializeBankData()
         {
             var customers = new List<Customer>
