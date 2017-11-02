@@ -52,6 +52,9 @@ namespace AgiltBank.Test
                 .All(c => c.Name.ToLower().Contains(query) || c.PostalCode.Contains(query)));
         }
 
+        [TestMethod]
+        public void CanOpenAccount()=> _bankData.OpenAccount(1005);
+
         private void InitializeBankData()
         {
             var customers = new List<Customer>
@@ -83,7 +86,6 @@ namespace AgiltBank.Test
             var accounts = new List<Account>
             {
                 new Account { Id = 13001, Balance = 0, CustomerId = 1001 },
-                new Account { Id = 13002, Balance = 1000000, CustomerId = 1001 },
                 new Account { Id = 14001, Balance = 99, CustomerId = 1005 },
                 new Account { Id = 14002, Balance = 9999, CustomerId = 1005 }
             };
