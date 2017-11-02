@@ -19,5 +19,10 @@ namespace AgiltBankLibrary.Data
         {
             return Customers.FirstOrDefault(c => c.Id == id);
         }
+
+        public void AddCustomer(Customer customer)
+        {
+            Customers.Add(customer);
+        }
     }
 }

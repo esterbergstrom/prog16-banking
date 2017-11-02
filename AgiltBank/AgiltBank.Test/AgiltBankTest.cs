@@ -19,6 +19,24 @@ namespace AgiltBank.Test
         [TestMethod]
         public void CanGetCustomerFromBankData() => Assert.IsNotNull(_bankData.GetCustomer(1005));
 
+        [TestMethod]
+        public void CanCreateCustomer()
+        {
+            _bankData.AddCustomer(new Customer
+            {
+                Id = 1002,
+                OrganisationNumber = "551234 - 6666",
+                Name = "Emil Ekman",
+                StreetAddress = "EkmanStreet 1",
+                City = "EkmanCity",
+                PostalCode = "S - 666 66",
+                Country = "Sweden",
+                PhoneNumber = "070 666 66 66"
+            });
+
+            Assert.IsNotNull(_bankData.GetCustomer(1002));
+        }
+
         private void InitializeBankData()
         {
             var customers = new List<Customer>
