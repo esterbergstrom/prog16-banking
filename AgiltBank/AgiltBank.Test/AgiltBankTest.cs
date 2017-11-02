@@ -37,6 +37,12 @@ namespace AgiltBank.Test
             Assert.IsNotNull(_bankData.GetCustomer(1002));
         }
 
+        [TestMethod]
+        public void CanRemoveCustomer() => Assert.IsTrue(_bankData.RemoveCustomer(1001));
+
+        [TestMethod]
+        public void RemoveCustomer_WithMoneyOnAccount_ShouldReturnFalse() => Assert.IsFalse(_bankData.RemoveCustomer(1005));
+
         private void InitializeBankData()
         {
             var customers = new List<Customer>
