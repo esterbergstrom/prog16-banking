@@ -6,27 +6,44 @@ namespace AgiltBank
 {
     public abstract class State
     {
-        public delegate void MenuItemHandler();
+        public State(string header = "", string prompt = "")
+        {
+            Header = header;
+            Prompt = prompt;
+            MenuItems = new Dictionary<string, MenuItem>();
+        }
+        
+        public string Header { get; set; }
+        public string Prompt { get; set; }
+        public Dictionary<string, MenuItem> MenuItems { get; set; }
 
-        protected string _prompt = string.Empty;
-        protected Dictionary<string, MenuItemHandler> _menuItems = new Dictionary<string, MenuItemHandler>();
+        protected void WriteMenuItems()
+        {
+            foreach (var menuItem in MenuItems)
+            {
+                Console.WriteLine($"{menuItem.Key}) {menuItem.Value.Name}");
+            }
+        }
 
         protected void Read()
         {
-            Console.Write($"{_prompt}: ");
+            var prompt = !string.IsNullOrEmpty(Prompt) ? $"{Prompt} " : "> ";
+            Console.Write(prompt);
 
-            if (_menuItems.Count < 1)
+            if (MenuItems.Count < 1)
             {
                 var line = Console.ReadLine();
                 ProcessLine(line);
             }
             else
             {
-                var key = Console.ReadKey().ToString();
+                var key = Console.ReadKey().KeyChar.ToString();
+                Console.WriteLine();
 
-                if (_menuItems.ContainsKey(key))
+                if (MenuItems.ContainsKey(key))
                 {
-                    _menuItems[key]();
+                    Console.WriteLine($"* {MenuItems[key].Name} *");
+                    MenuItems[key].Method();
                 }
                 else
                 {
@@ -37,5 +54,19 @@ namespace AgiltBank
         }
 
         protected abstract void ProcessLine(string line);
+
+        public class MenuItem
+        {
+            public MenuItem(string name, MenuItemHandler method)
+            {
+                Name = name;
+                Method = method;
+            }
+
+            public delegate void MenuItemHandler();
+            
+            public string Name { get; set; }
+            public MenuItemHandler Method { get; set; }
+        }
     }
 }

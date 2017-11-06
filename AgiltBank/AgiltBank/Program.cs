@@ -1,4 +1,5 @@
 ﻿using System;
+using AgiltBank.States;
 
 namespace AgiltBank
 {
@@ -6,7 +7,8 @@ namespace AgiltBank
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var context = new Context();
+            context.State = new Home();
         }
     }
 }
