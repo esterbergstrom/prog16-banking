@@ -9,6 +9,7 @@ namespace AgiltBank.States
         public Home(Context context) : base(context, string.Empty, "Huvudmeny")
         {
             MenuItems.Add("1", new MenuItem("Visa kundbild", ViewCustomer));
+            MenuItems.Add("2", new MenuItem("Sök kund", ViewSearch));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -19,6 +20,11 @@ namespace AgiltBank.States
         protected override void ProcessLine(string line)
         {
             throw new NotImplementedException();
+        }
+
+        private void ViewSearch()
+        {
+            Context.State = new Search(Context);
         }
 
         private void ViewCustomer()
