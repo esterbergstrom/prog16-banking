@@ -6,13 +6,15 @@ namespace AgiltBank
 {
     public abstract class State
     {
-        public State(string header = "", string prompt = "")
+        public State(Context context, string prompt = "", string header = "")
         {
+            Context = context;
             Header = header;
             Prompt = prompt;
             MenuItems = new Dictionary<string, MenuItem>();
         }
         
+        public Context Context { get; set; }
         public string Header { get; set; }
         public string Prompt { get; set; }
         public Dictionary<string, MenuItem> MenuItems { get; set; }
@@ -42,7 +44,6 @@ namespace AgiltBank
 
                 if (MenuItems.ContainsKey(key))
                 {
-                    Console.WriteLine($"* {MenuItems[key].Name} *");
                     MenuItems[key].Method();
                 }
                 else

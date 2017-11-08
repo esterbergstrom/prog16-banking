@@ -6,9 +6,9 @@ namespace AgiltBank.States
 {
     public class Home : State
     {
-        public Home() : base("Huvudmeny")
+        public Home(Context context) : base(context, string.Empty, "Huvudmeny")
         {
-            MenuItems.Add("1", new MenuItem("Menu item", ConfirmChoice));
+            MenuItems.Add("1", new MenuItem("Visa kundbild", ViewCustomer));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -21,11 +21,9 @@ namespace AgiltBank.States
             throw new NotImplementedException();
         }
 
-        private void ConfirmChoice()
+        private void ViewCustomer()
         {
-            Console.WriteLine("Menu item selected");
-            Console.WriteLine();
-            Read();
+            Context.State = new Customer(Context);
         }
     }
 }

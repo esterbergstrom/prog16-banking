@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgiltBank", "AgiltBank\AgiltBank.csproj", "{ECE0977C-DECD-432A-82E5-268CC9C5B92C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{08D0F315-6932-40F5-82E1-B27F82929B81} = {08D0F315-6932-40F5-82E1-B27F82929B81}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgiltBankLibrary", "AgiltBankLibrary\AgiltBankLibrary.csproj", "{08D0F315-6932-40F5-82E1-B27F82929B81}"
 EndProject
@@ -12,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Arbetsfordelning.txt = Arbetsfordelning.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgiltBank.Test", "AgiltBank.Test\AgiltBank.Test.csproj", "{3D49A511-54AC-4DF1-830D-8DDA872B282A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgiltBank.Test", "AgiltBank.Test\AgiltBank.Test.csproj", "{3D49A511-54AC-4DF1-830D-8DDA872B282A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
