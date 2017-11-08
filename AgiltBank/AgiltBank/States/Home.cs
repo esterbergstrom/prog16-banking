@@ -10,6 +10,7 @@ namespace AgiltBank.States
         {
             MenuItems.Add("1", new MenuItem("Visa kundbild", ViewCustomer));
             MenuItems.Add("2", new MenuItem("Sök kund", ViewSearch));
+            MenuItems.Add("3", new MenuItem("Skapa kund", ViewCustomerRegistration));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -30,6 +31,11 @@ namespace AgiltBank.States
         private void ViewCustomer()
         {
             Context.State = new Customer(Context);
+        }
+
+        private void ViewCustomerRegistration()
+        {
+            Context.State = new CustomerRegistration(Context);
         }
     }
 }
