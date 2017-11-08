@@ -12,6 +12,7 @@ namespace AgiltBank.States
             MenuItems.Add("2", new MenuItem("Sök kund", ViewSearch));
             MenuItems.Add("3", new MenuItem("Skapa kund", ViewCustomerRegistration));
             MenuItems.Add("4", new MenuItem("Ta bort kund", ViewCustomerRemoval));
+            MenuItems.Add("5", new MenuItem("Skapa konto", ViewAccountRegistration));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -42,6 +43,11 @@ namespace AgiltBank.States
         private void ViewCustomerRemoval()
         {
             Context.State = new CustomerRemoval(Context);
+        }
+
+        private void ViewAccountRegistration()
+        {
+            Context.State = new AccountRegistration(Context);
         }
     }
 }
