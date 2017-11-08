@@ -48,7 +48,7 @@ namespace AgiltBank
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please try again.");
+                    Console.WriteLine("Ett fel uppstod. Ange ett alternativ från menyn.");
                     Read();
                 }
             }

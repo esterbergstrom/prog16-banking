@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Globalization;
 
 namespace AgiltBank.States
 {
@@ -44,7 +46,23 @@ namespace AgiltBank.States
         private void WriteCustomerSummary(AgiltBankLibrary.Models.Customer customer)
         {
             Console.WriteLine($"Kundnummer: {customer.Id}");
+            Console.WriteLine($"Organisationsnummer: {customer.OrganisationNumber}");
             Console.WriteLine($"Namn: {customer.Name}");
+            Console.WriteLine($"Adress: {customer.StreetAddress}, {customer.PostalCode} {customer.City}");
+
+            var accounts = Context.BankData.Accounts.Where(a => a.CustomerId == customer.Id).ToList();
+
+            if (accounts.Count > 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Konton");
+
+                foreach (var account in accounts)
+                {
+                    var balance = account.Balance.ToString(new CultureInfo("sv-SE"));
+                    Console.WriteLine($"{account.Id}: {balance} kr");
+                }
+            }
         }
     }
 }
