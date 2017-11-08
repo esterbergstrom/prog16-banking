@@ -16,6 +16,7 @@ namespace AgiltBank.States
             MenuItems.Add("6", new MenuItem("Ta bort konto", ViewAccountRemoval));
             MenuItems.Add("7", new MenuItem("Insättning", ViewDeposit));
             MenuItems.Add("8", new MenuItem("Uttag", ViewWithdrawal));
+            MenuItems.Add("9", new MenuItem("Överföring", ViewTransfer));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -66,6 +67,11 @@ namespace AgiltBank.States
         private void ViewWithdrawal()
         {
             Context.State = new Withdrawal(Context);
+        }
+
+        private void ViewTransfer()
+        {
+            Context.State = new Transfer(Context);
         }
     }
 }
