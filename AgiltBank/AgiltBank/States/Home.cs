@@ -11,6 +11,7 @@ namespace AgiltBank.States
             MenuItems.Add("1", new MenuItem("Visa kundbild", ViewCustomer));
             MenuItems.Add("2", new MenuItem("Sök kund", ViewSearch));
             MenuItems.Add("3", new MenuItem("Skapa kund", ViewCustomerRegistration));
+            MenuItems.Add("4", new MenuItem("Ta bort kund", ViewCustomerRemoval));
 
             Console.WriteLine(Header.ToUpper());
             WriteMenuItems();
@@ -36,6 +37,11 @@ namespace AgiltBank.States
         private void ViewCustomerRegistration()
         {
             Context.State = new CustomerRegistration(Context);
+        }
+
+        private void ViewCustomerRemoval()
+        {
+            Context.State = new CustomerRemoval(Context);
         }
     }
 }

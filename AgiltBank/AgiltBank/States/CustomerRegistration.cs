@@ -97,7 +97,7 @@ namespace AgiltBank.States
         {
             Customer.PhoneNumber = phoneNumber;
 
-            Context.BankData.Customers.Add(Customer);
+            Context.BankData.AddCustomer(Customer);
             Console.WriteLine($"Kund skapad. Kundnumret är {Customer.Id}.");
 
             Console.WriteLine("Tryck för att fortsätta...");
