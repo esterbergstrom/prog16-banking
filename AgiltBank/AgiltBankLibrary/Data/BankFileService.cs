@@ -1,12 +1,13 @@
 ﻿using AgiltBankLibrary.Models;
 using System.Collections.Generic;
 using System.IO;
+using AgiltBankLibrary.Dtos;
 
 namespace AgiltBankLibrary.Data
 {
     public class BankFileService
     {
-        public BankData ReadBankDataFromFile(string path)
+        public BankDataDto ReadBankDataFromFile(string path)
         {
             var lines = File.ReadAllLines(path);
             var customers = new List<Customer>();
@@ -20,7 +21,11 @@ namespace AgiltBankLibrary.Data
             for (var i = numberOfCustomers + 2; i < lines.Length; i++)
                 accounts.Add(ParseToAccount(lines[i].Split(";")));
 
-            return new BankData(customers, accounts);
+            return new BankDataDto
+            {
+                Accounts = accounts,
+                Customers = customers
+            };
         }
 
         private static Account ParseToAccount(IReadOnlyList<string> fields)
