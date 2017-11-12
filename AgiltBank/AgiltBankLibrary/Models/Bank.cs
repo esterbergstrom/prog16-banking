@@ -7,12 +7,14 @@ namespace AgiltBankLibrary.Models
 {
     public class Bank
     {
-        public Bank(IEnumerable<Customer> customers, IEnumerable<Account> accounts)
+        public Bank(IEnumerable<Customer> customers, IEnumerable<Account> accounts, string name)
         {
             Customers = customers.ToList();
             Accounts = accounts.ToList();
+            Name = name;
         }
 
+        public string Name { get; }
         public IList<Customer> Customers { get; }
         public IList<Account> Accounts { get; }
 
