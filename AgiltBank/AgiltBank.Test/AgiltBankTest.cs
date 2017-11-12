@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AgiltBankLibrary.Data;
+﻿using AgiltBankLibrary.Data;
 using AgiltBankLibrary.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AgiltBank.Test
 {
@@ -53,10 +53,34 @@ namespace AgiltBank.Test
         }
 
         [TestMethod]
-        public void CanOpenAccount()=> _bankData.OpenAccount(1005);
+        public void CanOpenAccount() => _bankData.OpenAccount(1005);
 
         [TestMethod]
         public void CanRemoveAccount() => Assert.IsTrue(_bankData.RemoveAccount(13001));
+
+        [TestMethod]
+        public void CanWithdrawMoneyFromAccount() => Assert.IsTrue(_bankData.Withdrawal(14002, 100));
+
+        [TestMethod]
+        public void WithdrawNegativeMoney_ShouldReturnFalse() => Assert.IsFalse(_bankData.Withdrawal(14002, -100));
+
+        [TestMethod]
+        public void WithdrawMoreMoneyThanAccountBalance_ShouldReturnFalse() => Assert.IsFalse(_bankData.Withdrawal(14002, 10000));
+
+        [TestMethod]
+        public void CanDepositMoneyFromAccount() => Assert.IsTrue(_bankData.Deposit(14002, 100));
+
+        [TestMethod]
+        public void DepositNegativeMoney_ShouldReturnFalse() => Assert.IsFalse(_bankData.Deposit(14002, -100));
+
+        [TestMethod]
+        public void CanTransferMoneyBetweenAccounts() => Assert.IsTrue(_bankData.Transfer(14002, 14001, 50));
+
+        [TestMethod]
+        public void TransferNegativeMoney_ShouldReturnFalse() => Assert.IsFalse(_bankData.Transfer(14002, 14001, -50));
+
+        [TestMethod]
+        public void TransferMoreMoneyThanAccountBalance_ShouldReturnFalse() => Assert.IsFalse(_bankData.Transfer(14002, 14001, 10000));
 
         private void InitializeBankData()
         {
