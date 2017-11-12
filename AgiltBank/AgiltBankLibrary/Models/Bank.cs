@@ -1,12 +1,13 @@
 ﻿using AgiltBankLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AgiltBankLibrary.Data
+namespace AgiltBankLibrary.Models
 {
-    public class BankData
+    public class Bank
     {
-        public BankData(IEnumerable<Customer> customers, IEnumerable<Account> accounts)
+        public Bank(IEnumerable<Customer> customers, IEnumerable<Account> accounts)
         {
             Customers = customers.ToList();
             Accounts = accounts.ToList();
@@ -63,6 +64,66 @@ namespace AgiltBankLibrary.Data
                 return false;
 
             return accountsToRemove.All(a => Accounts.Remove(a));
+        }
+
+        public bool Deposit(int accountId, decimal amount)
+        {
+            try
+            {
+                if (amount > 0)
+                    Accounts.FirstOrDefault(c => c.Id == accountId).Balance += amount;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool Withdrawal(int accountId, decimal amount)
+        {
+            try
+            {
+                var account = Accounts.FirstOrDefault(c => c.Id == accountId);
+
+                if (amount > 0 && account.Balance >= amount)
+                    account.Balance -= amount;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool Transfer(int fromAccountId, int toAccountId, decimal amount)
+        {
+            try
+            {
+                var fromAccount = Accounts.FirstOrDefault(c => c.Id == fromAccountId);
+
+                if (amount > 0 && fromAccount.Balance >= amount)
+                {
+                    fromAccount.Balance -= amount;
+                    Accounts.FirstOrDefault(c => c.Id == toAccountId).Balance += amount;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
