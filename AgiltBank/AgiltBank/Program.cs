@@ -17,7 +17,7 @@ namespace AgiltBank
             var context = new Context(new Bank(bankData.Customers, bankData.Accounts, "SuperBank"));
             context.State = new Home(context);
 
-            Console.WriteLine("Tack för att du använder agilt-bank");
+            Console.WriteLine("Tack för att du använder agilt-bank.");
         }
     }
 }
