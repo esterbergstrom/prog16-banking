@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgiltBank", "AgiltBank\AgiltBank.csproj", "{ECE0977C-DECD-432A-82E5-268CC9C5B92C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -16,6 +16,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgiltBank.Test", "AgiltBank.Test\AgiltBank.Test.csproj", "{3D49A511-54AC-4DF1-830D-8DDA872B282A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{CB916ED9-8079-4842-95E3-F83093BFBA8A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\source\repos\ALM_Tenta2\ALM_Tenta\wwwroot\data\bankdata-small.txt = ..\..\..\..\source\repos\ALM_Tenta2\ALM_Tenta\wwwroot\data\bankdata-small.txt
+		..\..\..\..\source\repos\ALM_Tenta2\ALM_Tenta\wwwroot\data\bankdata.txt = ..\..\..\..\source\repos\ALM_Tenta2\ALM_Tenta\wwwroot\data\bankdata.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

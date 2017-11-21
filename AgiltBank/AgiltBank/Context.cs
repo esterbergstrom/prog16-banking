@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 using AgiltBankLibrary.Data;
+using AgiltBankLibrary.Dtos;
+using AgiltBankLibrary.Models;
 
 namespace AgiltBank
 {
     public class Context
     {
-        public Context(BankData bankData)
+        public Context(Bank bankData)
         {
             BankData = bankData;
         }
 
-        public BankData BankData { get; set; }
+        public Bank BankData { get; set; }
         public State State { get; set; }
     }
 }
