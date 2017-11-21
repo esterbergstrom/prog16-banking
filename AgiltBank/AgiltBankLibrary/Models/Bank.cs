@@ -3,16 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AgiltBankLibrary.Data
+namespace AgiltBankLibrary.Models
 {
-    public class BankData
+    public class Bank
     {
-        public BankData(IEnumerable<Customer> customers, IEnumerable<Account> accounts)
+        public Bank(IEnumerable<Customer> customers, IEnumerable<Account> accounts, string name)
         {
             Customers = customers.ToList();
             Accounts = accounts.ToList();
+            Name = name;
         }
 
+        public string Name { get; }
         public IList<Customer> Customers { get; }
         public IList<Account> Accounts { get; }
 
